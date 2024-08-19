@@ -1,10 +1,12 @@
-# QMAT-simplify
+# Q-MAT
 
-### Intro
+This is an open-source code repository for SIGGRAPH paper [Q-MAT: Computing Medial Axis Transform by Quadratic Error Minimization](https://personal.utdallas.edu/~xguo/Q-MAT.pdf). It contains the core **simplify** function of Q-MAT. For more supports, please see the [Todo List](#todo-list).
 
-This is an open-source code repository for SIGGRAPH paper [Q-MAT: Computing Medial Axis Transform by Quadratic Error Minimization](https://personal.utdallas.edu/~xguo/Q-MAT.pdf).
 
-It contains the core *simplify* function of Q-MAT.
+### Tested on:
+- MacOS M3 
+- Windows 
+
 
 ### Requirements
 
@@ -14,5 +16,54 @@ It contains the core *simplify* function of Q-MAT.
 
   NOTE: Since CGAL version 5.0, CGAL is header-only be default, which means that there is **no need to build CGAL before it can be used**. Thus, CGAL header files are included in `include/CGAL`. Also, you can see `/Eigen` and `/boost` in the same directory. These are dependencies for CGAL and are also header-only. Details can be seen at: [CGAL 5.6.1 Manual](https://doc.cgal.org/latest/Manual/thirdparty.html)
   
-- CMake (3.2.6)
+- CMake (3.16)
 
+- OpenMP (MacOS)
+
+
+## Installation & Run
+
+- Clone the repository into your local machine:
+
+```
+git clone https://github.com/ningnawang/Q-MAT
+```
+
+- Compile the code using cmake (first compilation may takes a while):
+
+```
+cd QMAT-simplify
+mkdir build && cd build
+cmake ..
+make -j4
+```
+
+- Run the program:
+```
+./QMAT <surface_mesh.off> <medial_mesh.ma> <num_target_spheres>
+```
+
+For example:
+```
+./QMAT ../data/bug.off ../data/bug.ma 200 
+```
+
+### Q&A
+1. For MacOS, resolving `clang: error: unsupported option ‘-fopenmp’`:
+
+The problem is that **AppleClang** does not support `-fopenmp`, one should use brew's 'llvm'.
+  
+- step 1:
+```
+$brew install llvm libomp
+```
+- step 2: Update Compiler Variables (or update in `~/.zshrc` if you want to use brew's `Clang` than `AppleClang` permanently)
+```
+export CC=/usr/local/opt/llvm/bin/clang
+```
+
+### Todo List:
+1. add `polyscope` for GUI
+2. add computation for initial MA given OFF
+3. add computation of initial MA
+4. ...
