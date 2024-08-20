@@ -1,6 +1,18 @@
 # Q-MAT
 
-This is an open-source code repository for SIGGRAPH paper [Q-MAT: Computing Medial Axis Transform by Quadratic Error Minimization](https://personal.utdallas.edu/~xguo/Q-MAT.pdf). It contains the core **simplify** function of Q-MAT. For more supports, please see the [Todo List](#todo-list).
+This is an open-source code repository for SIGGRAPH paper [Q-MAT: Computing Medial Axis Transform by Quadratic Error Minimization](https://personal.utdallas.edu/~xguo/Q-MAT.pdf). It contains the core **simplify** function of Q-MAT. For more supports, please see the [Todo List](#todo-list). Please cite the paper:
+```
+@article{li2015q,
+  title={Q-mat: Computing medial axis transform by quadratic error minimization},
+  author={Li, Pan and Wang, Bin and Sun, Feng and Guo, Xiaohu and Zhang, Caiming and Wang, Wenping},
+  journal={ACM Transactions on Graphics (TOG)},
+  volume={35},
+  number={1},
+  pages={1--16},
+  year={2015},
+  publisher={ACM New York, NY, USA}
+}
+```
 
 
 ### Tested on:
@@ -26,13 +38,13 @@ This is an open-source code repository for SIGGRAPH paper [Q-MAT: Computing Medi
 - Clone the repository into your local machine:
 
 ```
-git clone https://github.com/ningnawang/Q-MAT
+git clone https://github.com/ningnawang/QMAT
 ```
 
 - Compile the code using cmake (first compilation may takes a while):
 
 ```
-cd QMAT-simplify
+cd QMAT
 mkdir build && cd build
 cmake ..
 make -j4
