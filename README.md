@@ -60,7 +60,7 @@ For example:
 ./QMAT ../data/bug.off ../data/bug.ma 200 
 ```
 
-### Q&A
+## Q&A
 1. For MacOS, resolving `clang: error: unsupported option ‘-fopenmp’`:
 
 The problem is that **AppleClang** does not support `-fopenmp`, one should use brew's 'llvm'.
@@ -74,7 +74,7 @@ $brew install llvm libomp
 export CC=/usr/local/opt/llvm/bin/clang
 ```
 
-### Todo List:
+## Todo List:
 1. add `polyscope` for GUI
 2. add computation for initial MA given OFF
 3. add computation of initial MA
